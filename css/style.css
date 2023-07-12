@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&display=swap");
 * {
   margin: 0px;
@@ -11,6 +12,155 @@ ul, ol, li {
 
 a {
   text-decoration: none;
+}
+
+body {
+  background: #333;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex; /*자식요소의 ui설정을 부모요소에서 설정완료한다.*/
+}
+
+header {
+  width: 20%;
+  height: 100%;
+  padding: 10vh 5vw;
+  display: flex;
+  flex-wrap: wrap; /*화면이 줄어들면 줄바꿈*/
+  justify-content: center;
+  align-content: space-between; /*wrap이라서 align-content nowrap이면 aligin-items라고 준다. space-beween은 양쪽 균증 배열*/
+}
+header h1 {
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+header h1 i {
+  font-size: 5vw;
+  margin-bottom: 15px;
+}
+header h1 span {
+  font: normal 0.8vw/1 "airial";
+}
+header p {
+  font: normal 11px/1.2 "arial";
+  color: #888;
+  text-align: center;
+}
+
+section {
+  width: 80%;
+  height: 100%;
+  padding-top: 10vh;
+  display: flex;
+  transition: 0.5s;
+}
+section article {
+  flex: 1; /*비율설정 ?, flex는 높이 설정을 안해도 부모요소*/
+  position: relative;
+}
+section article::before {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 95%;
+  position: absolute;
+  top: 0px;
+  left: -100px;
+  background: #444;
+  opacity: 0;
+  transition: 1s;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
+}
+section article .inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  padding: 50px 30px 100px;
+}
+section article .inner .txt {
+  padding-top: 90px;
+  transition: 1s;
+}
+section article .inner .txt h2 {
+  font: normal 2vw/1 "Alegreya Sans SC";
+  color: #fff;
+  margin-bottom: 40px;
+  transition: 1s; /*움직이는 변화를 줄때는 시간을 주는 것이 좋다. 너무 급하게 변하기 때문에 멋이 없음*/
+}
+section article .inner .txt h2::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: #777;
+  margin-top: 20px;
+  transition: 1.5s;
+}
+section article .inner .txt p {
+  font: 14px/1.4 "arial";
+  color: #777;
+}
+section article .inner figure {
+  width: 100%;
+  height: 15vh;
+  overflow: hidden;
+  transition: 0.5s;
+  position: relative;
+  top: 0px;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+  filter: saturate(0.2); /*흑백비스므리 채도 0에 근접흑백 */
+}
+section article .inner figure video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section article:hover {
+  flex: 1.3; /*너비값 기존 1비유에서 1.3배 커지게 */
+}
+section article:hover::before {
+  left: 0px;
+  opacity: 1;
+}
+section article:hover .inner .txt {
+  padding-top: 20px; /*마우스올렸을 때 올라가게*/
+}
+section article:hover .inner .txt h2 {
+  font-size: 5vw;
+}
+section article:hover .inner .txt h2::after {
+  width: 120px;
+  background: orange;
+}
+section article:hover .inner figure {
+  height: 20vh;
+  top: 25px;
+  filter: saturate(1.2);
+}
+
+nav {
+  position: absolute;
+  top: 4vh;
+  right: 5vw;
+}
+nav ul {
+  display: flex;
+}
+nav ul li {
+  margin: 15px;
+}
+nav ul li a {
+  font-size: 18px;
+  color: #bbb;
 }
 
 /*# sourceMappingURL=style.css.map */
